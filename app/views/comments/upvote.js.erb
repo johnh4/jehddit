@@ -1,0 +1,4 @@
+<% if @comments.any? %>
+	var replacement = "<%= escape_javascript(render partial: 'comments/comment', collection: @comments) %>";
+	$('#comments_list').html(replacement);
+<% end %>

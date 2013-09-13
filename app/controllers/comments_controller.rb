@@ -35,14 +35,24 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:comment_id])
     @comment.update(vote_count: @comment.vote_count + 1)
-    redirect_to @post
+    
+    @comments = @post.comments.where(op_id: nil)
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.js
+    end
   end
 
   def downvote
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:comment_id])
     @comment.update(vote_count: @comment.vote_count - 1)
-    redirect_to @post
+
+    @comments = @post.comments.where(op_id: nil)
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.js
+    end
   end
 
   def destroy

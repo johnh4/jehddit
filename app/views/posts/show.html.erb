@@ -10,7 +10,7 @@
 
 <div class="divide"></div>
 <% if @comments.any? %>
-	<ul class="comments">
+	<ul class="comments" id="comments_list">
 		<%= render @comments.where(op_id: nil) %>
 	</ul>
 <% end %>
