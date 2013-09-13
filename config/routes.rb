@@ -6,11 +6,16 @@ Jehddit::Application.routes.draw do
 
   get 'signin', to: "sessions#new"
   delete 'signout', to: "sessions#destroy"
-
+  get '/posts/:post_id/comments/:comment_id/reply', to: "comments#reply", as: 'reply'
+  delete 'destroycomment', to: "comments#destroy"
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts do
-    resources :comments, only: [:new, :create, :show, :destroy]
+    resources :comments, only: [:new, :create, :show, :destroy] do
+      resources :comments, only: [:create, :show]
+    end
+      #get '/posts/:post_id/comments/:id/reply', to: "comments#reply", as: 'reply'
   end
 
   root "static_pages#home"

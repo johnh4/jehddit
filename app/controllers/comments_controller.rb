@@ -9,11 +9,15 @@ class CommentsController < ApplicationController
   	@comment = @post.comments.build(comment_params)
 	@comment.vote_count = 0
 	@comment.user_id = current_user.id
+	if params[:comment_id]
+		@op = Comment.find(params[:comment_id])
+		@comment.op_id = @op.id
+	end
   	if @comment.save
   		flash[:success] = "Comment posted!"
   		redirect_to @post
   	else
-  		#flash.now[:error] = "Comment failed to post."
+  		flash.now[:error] = "Comment failed to post."
   		render 'new'
   	end
   end
@@ -22,11 +26,24 @@ class CommentsController < ApplicationController
   	@comment = Comment.find(params[:id])
   end
 
+  def reply
+  	@post = Post.find(params[:post_id])
+  	@op = Comment.find(params[:comment_id])
+  end
+
+  def destroy
+  	@post = Post.find(params[:post_id])
+  	@comment = Comment.find(params[:id])
+  	@comment.destroy
+  	flash[:success] = "Comment deleted."
+  	redirect_to @post
+  end
+
 
   private
 
   	def comment_params
-  		params.require(:comment).permit(:content, :vote_count)
+  		params.require(:comment).permit(:content)
   	end
 
 end

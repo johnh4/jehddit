@@ -1,10 +1,24 @@
-<div class="comment">
-	<p>content: <%= comment.content %></p>
-	<p>reply_count: <%= comment.replies.count %></p>
-	<span class="time_stamp">
-		<p>
-		Posted <%= time_ago_in_words(comment.created_at) %> ago by 
-		<span class="user_name"><%= link_to comment.user.name, comment.user %></span>
-		</p>
-	</span>
-</div>
+<% unless comment.op %>
+	<div class="comment">
+		<p>content: <%= comment.content %></p>
+		<p>reply_count: <%= comment.replies.count %></p>
+		<p>show: <%= link_to 'show', post_comment_path(comment.post, comment) %></p>
+		<p>reply: <%= link_to 'reply', reply_path(comment.post, comment) %></p>
+		<% if comment.op %>
+			<p>op_id: <%= comment.op.id %></p>
+			<p>op_content: <%= comment.op.content %></p>
+		<% end %>
+		<% if comment.user %>
+			<p>user_id: <%= comment.user.id %></p>
+		<% end %>
+		<span class="time_stamp">
+			<p>
+			Posted <%= time_ago_in_words(comment.created_at) %> ago by 
+			<span class="user_name"><%= link_to comment.user.name, comment.user %></span>
+			</p>
+		</span>
+	</div>
+<% end %>
+<ul class="replies">
+	<%= render partial: 'comments/reply', collection: comment.replies %>
+</ul>

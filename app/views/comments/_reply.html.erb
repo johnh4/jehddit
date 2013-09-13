@@ -1,0 +1,23 @@
+<div class="comment">
+	<p>content: <%= reply.content %></p>
+	<p>reply_count: <%= reply.replies.count %></p>
+	<p>show: <%= link_to 'show', post_comment_path(reply.post, reply) %></p>
+	<p>reply: <%= link_to 'reply', reply_path(reply.post, reply) %></p>
+	---
+	<% if reply.op %>
+		<p>op_id: <%= reply.op.id %></p>
+		<p>op_content: <%= reply.op.content %></p>
+	<% end %>
+	<%= link_to 'delete', post_comment_path(reply.post, reply), method: :delete, 
+						  confirm: 'Are you sure?' %>
+	<span class="time_stamp">
+		<p>
+		Posted <%= time_ago_in_words(reply.created_at) %> ago by 
+		<span class="user_name"><%= link_to reply.user.name, reply.user %></span>
+		</p>
+	</span>
+</div>
+jkjkl
+<ul class="replies">
+	<%= render partial: 'comments/reply', collection: reply.replies %>
+</ul>
