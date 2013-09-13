@@ -9,7 +9,9 @@ Jehddit::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:new, :create, :show, :destroy]
+  end
 
   root "static_pages#home"
 

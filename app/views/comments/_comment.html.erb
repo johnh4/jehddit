@@ -1,0 +1,10 @@
+<div class="comment">
+	<p>content: <%= comment.content %></p>
+	<p>reply_count: <%= comment.replies.count %></p>
+	<span class="time_stamp">
+		<p>
+		Posted <%= time_ago_in_words(comment.created_at) %> ago by 
+		<span class="user_name"><%= link_to comment.user.name, comment.user %></span>
+		</p>
+	</span>
+</div>
