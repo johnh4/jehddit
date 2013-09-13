@@ -4,6 +4,8 @@
 <p>vote_count: <%= @post.vote_count %></p>
 <p>comment_count: <%= @post.comments.count %></p>
 
+<%= render 'voting', post: @post %>
+
 <%= link_to "Comment", new_post_comment_path(@post.id) %>
 
 <div class="divide"></div>

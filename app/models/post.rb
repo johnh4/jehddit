@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	default_scope -> { order('vote_count DESC') }
 	belongs_to :user
 	has_many :comments, dependent: :destroy
 

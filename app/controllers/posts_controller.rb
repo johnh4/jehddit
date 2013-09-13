@@ -25,6 +25,23 @@ class PostsController < ApplicationController
   	@posts = Post.all.paginate(page: params[:page])
   end
 
+  def update
+    @post = Post.find(params[:id])
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    vote_count = @post.vote_count + 1
+    @post.update(vote_count: vote_count)
+    redirect_to posts_path
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    vote_count = @post.vote_count - 1
+    @post.update(vote_count: vote_count)
+    redirect_to posts_path
+  end
 
   private
 
