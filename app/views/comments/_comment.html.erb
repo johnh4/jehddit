@@ -4,6 +4,7 @@
 		<p>reply_count: <%= comment.replies.count %></p>
 		<p>show: <%= link_to 'show', post_comment_path(comment.post, comment) %></p>
 		<p>reply: <%= link_to 'reply', reply_path(comment.post, comment) %></p>
+		<p>vote_count: <%= comment.vote_count %></p>
 		<% if comment.op %>
 			<p>op_id: <%= comment.op.id %></p>
 			<p>op_content: <%= comment.op.content %></p>
@@ -17,6 +18,7 @@
 			<span class="user_name"><%= link_to comment.user.name, comment.user %></span>
 			</p>
 		</span>
+		<%= render 'comments/comment_voting', comment: comment %>
 	</div>
 <% end %>
 <ul class="replies">

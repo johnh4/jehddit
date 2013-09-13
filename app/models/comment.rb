@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+	default_scope -> { order('vote_count DESC') }
+
 	belongs_to :user
 	belongs_to :post
 

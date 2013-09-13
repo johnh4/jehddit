@@ -8,8 +8,14 @@ Jehddit::Application.routes.draw do
   delete 'signout', to: "sessions#destroy"
   get '/posts/:post_id/comments/:comment_id/reply', to: "comments#reply", as: 'reply'
   delete 'destroycomment', to: "comments#destroy"
+  
   patch '/posts/:id/downvote', to: "posts#downvote", as: "downvote_post"
   patch '/posts/:id/upvote', to: "posts#upvote", as: "upvote_post"
+  patch '/posts/:post_id/comments/:comment_id/upvote', to: "comments#upvote",
+                                                       as: :upvote_comment
+  patch '/posts/:post_id/comments/:comment_id/downvote', to: "comments#downvote",
+                                                       as: :downvote_comment                                                     
+
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
