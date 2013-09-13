@@ -1,8 +1,9 @@
 <h1>All Posts</h1>
 
-<ul class="posts">
+<ul class="posts" id="posts_index">
 	<% if @posts.any? %>
 		<%= render @posts %>
 		<%= will_paginate %>
 	<% end %>
 </ul>
+<div id="pi_test"></div>
