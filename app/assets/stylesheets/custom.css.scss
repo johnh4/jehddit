@@ -1,0 +1,92 @@
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300);
+
+//** Constants
+$accent: #00d00f;
+$accent-2: #00d0ff;
+//** Formatting
+.center {
+	text-align: center;
+}
+body {
+	padding-top: 60px;
+}
+//** Type
+h1, a {
+	font-family: 'Open Sans', 'Arial', sans-serif;
+	font-weight: 300;
+}
+p {
+	font-family: 'Josefin Sans', Arial, sans-serif;
+	font-weight: 400;
+}
+//** Header
+#logo {
+	float: left;
+	display: block;
+	margin-top: 10px;
+	color: #fff;
+}
+
+.navbar .navbar-inner {
+	background-color: rgb(77, 140, 191);
+	background-color: red;
+	background-color: #b3eeff;
+	background-color: #e5ff00;
+	background-color: #00d00f;
+	background-color: #00d0ff;
+	background-image: none;
+}
+.navbar-inverse .navbar-inner {
+  //background-image: -ms-linear-gradient(top, #E27403, #E49037);
+  //background-image: -webkit-linear-gradient(top, #E27403, #E49037);
+  //background-image: linear-gradient(to bottom, #E27403, #E49037);
+}
+.navbar .nav li a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color:  #fff;
+}
+
+//**Home page
+.hero-unit h1, .call-out h1 {
+	font-family: 'Josefin sans', sans-serif;
+	font-weight: 100;
+	color: #00d00f;
+}
+.call-out h1 {
+	font-size: 64px;
+}
+.home-filler {
+	height: 400px;
+}
+
+//** Footer
+footer {
+	border-top: 1px solid #eaeaea;
+}
+.byline {
+	float: left;
+	font-style: italic;
+}
+.byline #brand {
+	color: $accent;
+}
+.byline #name {
+	color: $accent-2;
+}
+footer ul {
+	float: right;
+}
+footer li {
+	float: right;
+	margin-left: 18px;
+	list-style: none;
+}
+footer li a {
+	color: $accent-2;
+}
