@@ -6,8 +6,10 @@ Jehddit::Application.routes.draw do
 
   get 'signin', to: "sessions#new"
   delete 'signout', to: "sessions#destroy"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :posts
 
   root "static_pages#home"
 

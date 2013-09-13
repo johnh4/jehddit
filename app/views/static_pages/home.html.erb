@@ -1,6 +1,10 @@
 <%= provide(:title, 'Home') %>
 <div class="center call-out">
 	<h1>Welcome to jehddit!</h1>
-	<%= link_to "Sign Up!", new_user_path, class: "btn btn-primary" %>
+	<% if signed_in? %>
+		<%= link_to "Post", new_post_path, class: "btn btn-primary" %>
+	<% else %>
+		<%= link_to "Sign Up!", new_user_path, class: "btn btn-primary" %>
+	<% end %>
 </div>
 <div class="home-filler"></div>

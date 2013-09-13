@@ -1,0 +1,8 @@
+<li class="post">
+	<p class="link"><%= post.link %></p>
+	<p class="content_sum"><%= post.content %></p>
+	<p>
+		Posted <%= time_ago_in_words post.created_at %> ago by 
+		<span class="author"><%= post.user.name %></span>
+	</p>
+</li>

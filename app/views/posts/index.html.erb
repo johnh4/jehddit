@@ -1,0 +1,8 @@
+<h1>All Posts</h1>
+
+<ul class="posts">
+	<% if @posts.any? %>
+		<%= render @posts %>
+		<%= will_paginate %>
+	<% end %>
+</ul>
