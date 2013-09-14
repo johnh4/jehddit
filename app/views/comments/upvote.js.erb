@@ -1,4 +1,5 @@
 <% if @comments.any? %>
 	var replacement = "<%= escape_javascript(render partial: 'comments/comment', collection: @comments) %>";
 	$('#comments_list').html(replacement);
+	//$('form button').addClass('disabled');
 <% end %>

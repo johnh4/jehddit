@@ -1,13 +1,17 @@
 <%= provide(:title, "Comment") %>
 
 <h1>Make a Comment</h1>
-<%= form_for [@post, @post.comments.build] do |f| %>
-	<%= render 'shared/error_messages', object: @comment %>
-	<%= f.hidden_field :post_id %>
+<div class="new_comment">
+	<%= form_for [@post, @post.comments.build] do |f| %>
+		<%= render 'shared/error_messages', object: @comment %>
+		<%= f.hidden_field :post_id %>
 
-	<%= f.text_area :content, placeholder: "Compose your comment..." %>
+		<%= f.text_area :content, placeholder: "Compose your comment..." %>
 
-	<br>
-	<%= f.submit "Post", class: "btn btn-primary" %>
+		<br>
+		<%= f.submit "Post", class: "btn btn-primary" %>
 
-<% end %>
+	<% end %>
+	<!-- <%= button_tag "Comment", class: "comment_button" %> -->
+</div>
+<div id="comment_response"></div>

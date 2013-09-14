@@ -2,7 +2,7 @@
 <div class="center call-out">
 	<h1>Welcome to jehddit!</h1>
 	<% if signed_in? %>
-		<%= link_to "Post", new_post_path, class: "btn btn-primary" %>
+		<%= link_to "Post", new_post_path, class: "btn btn-custom-blue" %>
 	<% else %>
 		<%= link_to "Sign Up!", new_user_path, class: "btn btn-primary" %>
 	<% end %>

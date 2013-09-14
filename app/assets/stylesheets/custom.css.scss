@@ -1,4 +1,4 @@
-@import "bootstrap";
+//@import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300);
 
@@ -107,4 +107,26 @@ footer li a {
 .time_stamp p {
 	font-weight: 400;
 	font-style: italic;
+	display: inline;
+}
+//** Buttons
+form {
+	display: inline;
+	//float: right;
+}
+.buttons {
+	margin-bottom: 10px;
+}
+//** Arrows
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	
+	border-bottom: 15px solid black;
+}
+//** Debug
+.debug {
+	display: none;
 }

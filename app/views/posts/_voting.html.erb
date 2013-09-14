@@ -1,9 +1,8 @@
 <%= form_for(post, url: upvote_post_path(post), method: :patch, remote: true) do |f| %>
-	<%= f.submit "Upvote", class: "btn btn-primary btn-small" %>
+	<%= f.submit "Upvote", class: "btn btn-mini btn-custom-light-green" %>
 <% end %>
 
 <%= form_for(post, url: downvote_post_path(post), method: :patch, remote: true) do |f| %>
-	<%= f.submit "Downvote", class: "btn btn-primary btn-small" %>
+	<%= f.submit "Downvote", class: "btn btn-mini btn-custom-yellow" %>
 <% end %>
-
 <div id="test"></div>

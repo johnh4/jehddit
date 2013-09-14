@@ -1,17 +1,20 @@
 <% unless comment.op %>
 	<div class="comment">
-		<p>content: <%= comment.content %></p>
-		<p>reply_count: <%= comment.replies.count %></p>
-		<p>show: <%= link_to 'show', post_comment_path(comment.post, comment) %></p>
-		<p>reply: <%= link_to 'reply', reply_path(comment.post, comment) %></p>
-		<p>vote_count: <%= comment.vote_count %></p>
-		<% if comment.op %>
-			<p>op_id: <%= comment.op.id %></p>
-			<p>op_content: <%= comment.op.content %></p>
-		<% end %>
-		<% if comment.user %>
-			<p>user_id: <%= comment.user.id %></p>
-		<% end %>
+		<div class="debug">
+			<p>content: <%= comment.content %></p>
+			<p>reply_count: <%= comment.replies.count %></p>
+			<p>show: <%= link_to 'show', post_comment_path(comment.post, comment) %></p>
+			<p>reply: <%= link_to 'reply', reply_path(comment.post, comment) %></p>
+			<p>vote_count: <%= comment.vote_count %></p>
+			<% if comment.op %>
+				<p>op_id: <%= comment.op.id %></p>
+				<p>op_content: <%= comment.op.content %></p>
+			<% end %>
+			<% if comment.user %>
+				<p>user_id: <%= comment.user.id %></p>
+			<% end %>
+		</div>
+		<p><%= comment.content %></p>
 		<span class="time_stamp">
 			<p>
 			Posted <%= time_ago_in_words(comment.created_at) %> ago by 
