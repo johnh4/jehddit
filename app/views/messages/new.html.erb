@@ -1,0 +1,15 @@
+<h1>New Message</h1>
+
+<%= form_for [@user, Message.new(receiver_id: @user.id)] do |f| %>
+	<%= f.hidden_field :receiver_id %>
+
+	<%= f.text_area :content, placeholder: "Your message to #{@user.name}...", 
+					class: "message-area" %>
+	<br>
+	<%= f.submit "Send", class: "btn btn-custom-green" %>
+<% end %>
+
+<p>
+	from: <%= current_user.name %> <br>
+	to: <%= @user.name %>
+</p>

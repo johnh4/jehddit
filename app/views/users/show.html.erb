@@ -4,3 +4,5 @@
 <p>This is a profile page.</p>
 
 <p>post count: <%= @user.posts.count %></p>
+
+<p><%= link_to "Message", new_message_path(@user) %></p>

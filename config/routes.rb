@@ -16,14 +16,17 @@ Jehddit::Application.routes.draw do
   patch '/posts/:post_id/comments/:comment_id/downvote', to: "comments#downvote",
                                                        as: :downvote_comment                                                     
 
+  get '/users/:user_id/message', to: "messages#new", as: :new_message
+  get '/messages', to: "messages#index", as: :messages                                                    
 
-  resources :users
+  resources :users do
+    resources :messages, only: [:new, :create, :destroy, :show, :index]
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts do
     resources :comments, only: [:new, :create, :show, :destroy] do
       resources :comments, only: [:create, :show]
     end
-      #get '/posts/:post_id/comments/:id/reply', to: "comments#reply", as: 'reply'
   end
 
   root "static_pages#home"

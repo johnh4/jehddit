@@ -130,3 +130,22 @@ form {
 .debug {
 	display: none;
 }
+//** Message
+.sent-message, .received-message {
+	margin-top: 10px;
+	border-bottom: 1px solid $accent;
+	.message-content {
+		font-weight: 400;
+		//background-color: red;
+	}
+	.to, .from {
+		font-style: italic;
+	}
+}
+.received-message:last-child {
+	border-bottom: 0px solid black;
+}
+.message-area {
+	width: 50%;
+	height: 200px;
+}

@@ -1,0 +1,9 @@
+<div class="sent-message">
+	<div class="message-content">
+		<p><%= sent_message.content %></p>
+	</div> 
+	<div class="to">
+		<p>Sent <%= time_ago_in_words sent_message.created_at %> ago to 
+				<%= link_to sent_message.receiver.name, sent_message.receiver %></p>
+	</div>
+</div>

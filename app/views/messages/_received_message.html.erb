@@ -1,0 +1,15 @@
+<div class="received-message">
+	<div class="message-content">
+		<p><%= received_message.content %></p>
+	</div> 
+	<div class="from">
+		<p>
+			Sent <%= time_ago_in_words received_message.created_at %> ago by 
+				<%= link_to received_message.sender.name, received_message.sender %>.
+			<span class="reply">
+				To send a reply, <%= link_to 'click here', 
+				new_user_message_path(received_message.sender) %>.
+			</span>
+		</p>
+	</div>
+</div>
