@@ -1,4 +1,12 @@
 <div class="received-message">
+	<% if received_message.unread? %>
+		<div class="new">New</div>
+		<div class="mark-form">
+		<%= form_for([current_user, received_message], remote: true) do |f| %>
+				<% f.submit "mark as read", class: "btn-link" %>
+			<% end %>
+		</div>
+	<% end %>
 	<div class="message-content">
 		<p><%= received_message.content %></p>
 	</div> 

@@ -27,8 +27,21 @@ class MessagesController < ApplicationController
   	@sent = current_user.sent_messages
   	@received = current_user.received_messages
     unread_messages.each do |message|
-      message.update(unread: false)
+      #message.update(unread: false)
     end
+  end
+
+  def update
+    @message = Message.find(params[:id])
+    @message.update(unread: false)
+    respond_to do |format|
+      format.html { redirect_to messages_path }
+      format.js
+    end
+  end
+
+  def unread_count
+    render json: unread_messages.count
   end
 
   private

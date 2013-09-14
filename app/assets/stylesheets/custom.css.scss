@@ -157,3 +157,44 @@ form {
 .filter {
 	margin-left: 5px;
 }
+@-webkit-keyframes oscillate {
+	0% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: .7;
+	}
+	100% {
+		opacity: 0.1;
+	}
+}
+.new {
+	//font-family: 'open sans', 'arial';
+	//color: #6A0AAB;
+	color: rgb(218, 9, 180);
+	font-variant: small-caps;
+	-webkit-animation: oscillate 5s infinite; 
+	cursor: pointer;
+	display: inline;
+}
+.mark-form{
+	display: none;
+}
+#mark-all{
+	float: right;
+	display: block;
+	//font-weight: 400;
+}
+.received-messages {
+	h1{
+		display: inline;
+	}
+	//background-color: #CCFEFF;
+	//color: #fff;
+	//background-color: #007AF5;
+}
+.sent-messages{
+	//background-color: #FFFFCC;
+	background-color: #FFFFE5;
+	background-color: #FFFFEF;
+}

@@ -17,10 +17,12 @@ Jehddit::Application.routes.draw do
                                                        as: :downvote_comment                                                     
 
   get '/users/:user_id/message', to: "messages#new", as: :new_message
-  get '/messages', to: "messages#index", as: :messages                                                    
+  get '/messages', to: "messages#index", as: :messages  
+
+  get '/unread_count', to: "messages#unread_count"                                                  
 
   resources :users do
-    resources :messages, only: [:new, :create, :destroy, :show, :index]
+    resources :messages, only: [:new, :create, :destroy, :show, :index, :update]
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts do
