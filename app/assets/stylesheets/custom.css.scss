@@ -51,7 +51,9 @@ p, p a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     color:  #fff;
 }
-
+#unread-count {
+	color: red;
+}
 //**Home page
 .hero-unit h1, .call-out h1 {
 	font-family: 'Josefin sans', sans-serif;
@@ -142,10 +144,16 @@ form {
 		font-style: italic;
 	}
 }
+.sent-message {
+	border-bottom: 1px solid $accent-2;
+}
 .received-message:last-child {
 	border-bottom: 0px solid black;
 }
 .message-area {
 	width: 50%;
 	height: 200px;
+}
+.filter {
+	margin-left: 5px;
 }

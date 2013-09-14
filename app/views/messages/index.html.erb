@@ -2,25 +2,31 @@
 	sent_messages: <%= @sent.count %>
 	received_messages: <%= @received.count %>
 </p>
-
-<div class="sent-messages">
-	<h1>Sent Messages</h1>
-	<% if @sent.any? %>
-		<ul>
-			<%= render partial: 'messages/sent_message', collection: @sent %>
-		</ul>
-	<% else %>
-		<ul><p>Messages that you send will be placed here.</p></ul>
-	<% end %>
+<div class="center filters">
+	<span class="filter" id="filter-all"><%= link_to "All", "#" %></span>
+	<span class="filter" id="filter-sent"><%= link_to "Sent", "#" %></span>
+	<span class="filter" id="filter-received"><%= link_to "Received", "#" %></span>
 </div>
+<div class="all-messages">
+	<div class="sent-messages">
+		<h1>Sent Messages</h1>
+		<% if @sent.any? %>
+			<ul>
+				<%= render partial: 'messages/sent_message', collection: @sent %>
+			</ul>
+		<% else %>
+			<ul><p>Messages that you send will be placed here.</p></ul>
+		<% end %>
+	</div>
 
-<div class="received-messages">
-	<h1>Received Messages</h1>
-	<% if @received.any? %>
-		<ul>
-			<%= render partial: 'messages/received_message', collection: @received %>
-		</ul>
-	<% else %>
-		<ul><p>Messages sent to you will be placed here.</p></ul>
-	<% end %>
+	<div class="received-messages">
+		<h1>Received Messages</h1>
+		<% if @received.any? %>
+			<ul>
+				<%= render partial: 'messages/received_message', collection: @received %>
+			</ul>
+		<% else %>
+			<ul><p>Messages sent to you will be placed here.</p></ul>
+		<% end %>
+	</div>
 </div>

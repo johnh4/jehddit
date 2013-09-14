@@ -7,4 +7,22 @@ $(document).ready(function() {
         $("#comment_response").html(response);
       });
   });
+
+  $('.filters').on('click', '#filter-sent', function(event){
+      event.preventDefault();
+      $('.received-messages').fadeOut();
+      $('.sent-messages').slideDown();
+  });
+
+  $('.filters').on('click', '#filter-received', function(event){
+      event.preventDefault();
+      $('.sent-messages').slideUp();
+      $('.received-messages').fadeIn();
+  });
+
+  $('.filters').on('click', '#filter-all', function(event){
+      event.preventDefault();
+      $('.received-messages').fadeIn();
+      $('.sent-messages').fadeIn();
+  });
 });

@@ -9,7 +9,12 @@
 					<li><%= link_to "posts", posts_path %></li>
 					<% if signed_in? %>
 						<li><%= link_to "sign out", signout_path, method: :delete %></li>
-						<li><%= link_to "messages", messages_path %></li>
+						<% unread = 1 %>
+						<li>
+							<a href="<%= messages_path %>">
+								messages <span id="unread-count"></span>
+							</a>
+						</li>
 					<% else %>
 						<li><%= link_to "sign in", signin_path %></li>
 					<% end %>
