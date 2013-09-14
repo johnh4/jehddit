@@ -20,7 +20,7 @@
 		<% end %>
 	</div>
 	<div class="sent-messages">
-		<h1>Sent Messages</h1>
+		<h1 id="sent-hl">Sent Messages</h1>
 		<% if @sent.any? %>
 			<ul>
 				<%= render partial: 'messages/sent_message', collection: @sent %>
