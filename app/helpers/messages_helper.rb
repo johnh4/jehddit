@@ -1,9 +1,8 @@
 module MessagesHelper
-	#def unread?
-#	#	current_user.messages.unread?
-#	#end
-#
-	#def unread
-	#	current_user.messages.unread.count
-	#end
+	def unread_messages
+		current_user.received_messages.where(unread: true)
+	end
+	def unread?
+		unread_messages.any?
+	end
 end

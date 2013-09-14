@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914115209) do
+ActiveRecord::Schema.define(version: 20130914165710) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130914115209) do
     t.integer  "receiver_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "unread",      default: true
   end
 
   create_table "posts", force: true do |t|

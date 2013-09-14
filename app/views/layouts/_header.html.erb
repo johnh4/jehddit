@@ -8,13 +8,18 @@
 					<li><%= link_to "help", help_path %></li>
 					<li><%= link_to "posts", posts_path %></li>
 					<% if signed_in? %>
-						<li><%= link_to "sign out", signout_path, method: :delete %></li>
-						<% unread = 1 %>
-						<li>
-							<a href="<%= messages_path %>">
-								messages <span id="unread-count"></span>
-							</a>
-						</li>
+						<% if unread? %>
+							<li><%= link_to "sign out", signout_path, method: :delete %></li>
+							<li>
+								<a href="<%= messages_path %>">
+									messages <span id="unread-count">
+									<%= unread_messages.count %>
+									</span>
+								</a>
+							</li>
+						<% else %>
+							<li><%= link_to "messages", messages_path %></li>
+						<% end %>
 					<% else %>
 						<li><%= link_to "sign in", signin_path %></li>
 					<% end %>

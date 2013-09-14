@@ -26,6 +26,9 @@ class MessagesController < ApplicationController
   def index
   	@sent = current_user.sent_messages
   	@received = current_user.received_messages
+    unread_messages.each do |message|
+      message.update(unread: false)
+    end
   end
 
   private
