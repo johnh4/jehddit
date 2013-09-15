@@ -1,8 +1,7 @@
-<h1><%= @post.link %></h1>
-<p>author: <%= link_to @post.user.name, @post.user %></p>
-<p>content: <%= @post.content %></p>
-<p>vote_count: <span id="post_vote_count"><%= @post.vote_count %></span></p>
-<p>comment_count: <%= @post.comments.count %></p>
+<h1><%= @post.title %></h1>
+<h3><%= link_to @post.link, @post.link %></h3>
+<p>Posted by <%= link_to @post.user.name, @post.user %></p>
+<p><%= @post.content %></p>
 
 <%= render 'voting', post: @post %>
 

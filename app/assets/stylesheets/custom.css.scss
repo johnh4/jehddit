@@ -3,8 +3,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300);
 
 //** Constants
-$accent: #00d00f;
-$accent-2: #00d0ff;
+$accent: #00d00f; //light green
+$accent-2: #00d0ff; //light blue
+$accent-3: rgb(235, 0, 182); //fuscia
 //** Formatting
 .center {
 	text-align: center;
@@ -13,7 +14,7 @@ body {
 	padding-top: 60px;
 }
 //** Type
-h1, a {
+h1, h3, a {
 	font-family: 'Open Sans', 'Arial', sans-serif;
 	font-weight: 300;
 }
@@ -128,6 +129,49 @@ form {
 	
 	border-bottom: 15px solid black;
 }
+//** Post Index
+
+#posts_index li:nth-child(even){
+	background-color: #CCFFEB;
+}
+#posts_index {
+	list-style: none;
+}
+/*
+#all-posts-hl {
+	color: $accent;
+	font-family: 'Josefin Sans', Arial;
+}
+*/
+.post{
+	padding: 0px 10px 0px 10px;
+	position: relative;
+	.link, .post-title{
+		display: inline;
+	}
+	.link a{
+		color: $accent-3;
+		//background-color: pink;
+	}
+	.count {
+		//float: right;
+		position: absolute;
+		font-size: 100px;
+		display: block;
+		top: 32px;
+		right: 0px;
+		color: #4E00EB; //purple
+		color: #F5E5FF;
+		font-style: italic;
+	}
+	.post-voting{
+		margin-bottom: 6px;
+	}
+	.posted-by{
+		font-style: italic;
+	}
+}
+
 //** Debug
 .debug {
 	display: none;
@@ -183,7 +227,7 @@ form {
 #mark-all{
 	float: right;
 	display: block;
-	//font-weight: 400;
+	font-weight: 400;
 }
 .received-messages {
 	h1{

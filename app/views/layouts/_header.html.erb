@@ -8,8 +8,8 @@
 					<li><%= link_to "help", help_path %></li>
 					<li><%= link_to "posts", posts_path %></li>
 					<% if signed_in? %>
+						<li><%= link_to "sign out", signout_path, method: :delete %></li>
 						<% if unread? %>
-							<li><%= link_to "sign out", signout_path, method: :delete %></li>
 							<li>
 								<a href="<%= messages_path %>">
 									messages <span id="unread-count">
