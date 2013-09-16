@@ -1,11 +1,12 @@
 <div class="buttons">
 	<%= form_for([comment.post, comment], 
 		url: upvote_comment_path(comment.post, comment), remote: true) do |f| %>
-		<%= f.submit "Upvote", class: "btn btn-mini btn-custom-fuscia" %>
+		<i class="icon icon-long-arrow-up highlight-up"></i>
+		<%= f.submit "Upvote", class: "btn btn-mini btn-custom-fuscia hide-form" %>
 	<% end %>
-
 	<%= form_for([comment.post, comment], url: downvote_comment_path(comment.post,
 		          comment), remote: true) do |f| %>
-		<%= f.submit "Downvote", class: "btn btn-mini btn-custom" %>	         
+		<i class="icon icon-long-arrow-down highlight-down"></i>
+		<%= f.submit "Downvote", class: "btn btn-mini btn-custom hide-form" %>	         
 	<% end %>
 </div>

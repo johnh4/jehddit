@@ -12,8 +12,6 @@
 		<% end %>
 	</div>
 	<p><%= reply.content %></p>
-	<p><%= link_to 'delete', post_comment_path(reply.post, reply), method: :delete, 
-						  confirm: 'Are you sure?' %>
 	</p>						  
 	<span class="time_stamp">
 		<p>
@@ -22,6 +20,15 @@
 		</p>
 	</span>
 	<%= render 'comments/comment_voting', comment: reply %>
+	<div class="right">
+		<p>
+		<% if current_user?(reply.user) %>
+			<%= link_to 'Delete', post_comment_path(reply.post, reply), method: :delete, 
+								  confirm: 'Are you sure?' %>
+		<% end %>
+		<span class="reply-link"><%= link_to 'Reply', reply_path(reply.post, reply) %></span>
+		</p>
+	</div>
 </div>
 <ul class="replies">
 	<%= render partial: 'comments/reply', collection: reply.replies %>

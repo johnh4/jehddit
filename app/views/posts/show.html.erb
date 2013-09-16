@@ -1,15 +1,33 @@
-<h1><%= @post.title %></h1>
-<h3><%= link_to @post.link, @post.link %></h3>
-<p>Posted by <%= link_to @post.user.name, @post.user %></p>
-<p><%= @post.content %></p>
+<div class="row">
+	<div class="span12 upper-rectangle">
+		<div class="left"><%= link_to "All Posts", posts_path %></div>
+		<div class="right">
+			You are here: Home / About / Contact
+		</div>
+	</div>
+</div>
+<div class="row" id="post-index-main-area">
+	<aside class="span9 post-and-comments">
+		<div class="count"><%= @post.vote_count %></div>
+		<h1><%= @post.title %></h1>
+		<h3><%= link_to @post.link, @post.link %></h3>
+		<p>Posted by <%= link_to @post.user.name, @post.user %></p>
+		<p><%= @post.content %></p>
 
-<%= render 'voting', post: @post %>
+		<%= render 'voting', post: @post %>
 
-<%= link_to "Comment", new_post_comment_path(@post.id) %>
+		<%= link_to "Comment", new_post_comment_path(@post.id) %>
 
-<div class="divide"></div>
-<% if @comments.any? %>
-	<ul class="comments" id="comments_list">
-		<%= render @comments.where(op_id: nil) %>
-	</ul>
-<% end %>
+		<div class="divide"></div>
+		<% if @comments.any? %>
+			<ul class="comments" id="comments_list">
+				<%= render @comments.where(op_id: nil) %>
+			</ul>
+		<% end %>
+	</aside>
+	<div class="span3 sidebar">
+		<ul>
+			<%= render Post.all %>
+		</ul>
+	</div>
+</div>

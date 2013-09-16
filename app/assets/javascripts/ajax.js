@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function ready() {
   $(".comment_button").first().click(function(event){
       event.preventDefault();
       var comment_form = $(".new_comment form").serialize();
@@ -82,10 +82,30 @@ $(document).ready(function() {
         }
       }); 
   });
-
+  //clear all new msg indicators after submitting forms to server
   $('.received-messages').on('click', '#mark-all', function(){
     $('.mark-form form').submit();
     $('.new').fadeOut();
   });
 
-});
+  $('.upper-rectangle').on('click', function(){
+    console.log('upper-rectangle clicked.');
+  });
+
+  //make the icons submit the hidden forms
+  $(document).on('click', '.icon-long-arrow-down', function(){
+    console.log('clicked');
+    $(this).closest('form').submit();
+    console.log($(this).closest('form'));
+  });
+
+  //make the icons submit the hidden forms
+  $(document).on('click', '.icon-long-arrow-up', function(){
+    console.log('clicked');
+    $(this).closest('form').submit();
+    console.log($(this).closest('form'));
+  });
+
+}
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -6,6 +6,7 @@
 $accent: #00d00f; //light green
 $accent-2: #00d0ff; //light blue
 $accent-3: rgb(235, 0, 182); //fuscia
+$accent-4: rgb(81, 228, 144); //light green-teal
 //** Formatting
 .center {
 	text-align: center;
@@ -106,7 +107,29 @@ footer li a {
 }
 .comment {
 	border-top: 1px solid #eaeaea;
+	.timestamp p, .buttons {
+		display: inline;
+	}
+	.right{
+		float: right;
+	}
 }
+.reply-link{
+	//float: right;
+	margin-left: 20px;
+}
+.sidebar ul li:nth-child(odd){
+	border-left: 3px solid $accent-2;
+}
+//ul li:nth-child(even){
+//	border-left: 3px solid $accent-4;
+//}
+//.comment:nth-child(odd){
+//	border-left: 3px solid $accent-4;
+//}
+//.replies:nth-child(odd){
+//	border-left: 3px solid $accent-4;	
+//}
 .time_stamp p {
 	font-weight: 400;
 	font-style: italic;
@@ -121,13 +144,23 @@ form {
 	margin-bottom: 10px;
 }
 //** Arrows
-.arrow-up {
-	width: 0; 
-	height: 0; 
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	
-	border-bottom: 15px solid black;
+
+.hide-form{
+	display: none;
+}
+i{
+	display: inline;
+}
+.icon{
+	margin-left: 10px;
+	cursor: pointer;
+	display: inline-block;
+	&:hover.highlight-up{
+		background-color: $accent-4;
+	}
+	&:hover.highlight-down{
+		background-color: red;
+	}
 }
 //** Post Index
 
@@ -245,4 +278,72 @@ form {
 #sent-hl{
 	//color: #8805A8;
 	color: rgb(235, 0, 182);
+}
+//** Sidebar / Upper bar
+.upper-rectangle{
+	border-bottom: 1px solid #eaeaea;
+	//background-color: grey;
+	font-family: 'Open Sans', arial, sans-serif;
+	font-weight: 300;
+	display: block;
+	.right{
+		float: right;
+	}
+	.left{
+		float: left;
+	}
+	a {
+		color: #333;
+		//text-decoration: none;
+	}
+}
+.sidebar{
+	//box-shadow: -2px 0px 1px -2px rgba(0,0,0,0.3);
+	border-left: 1px solid #eaeaea;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	overflow: scroll;
+	.post{
+		list-style: none;
+		border-bottom: 1px solid #eaeaea;
+		.post-title{
+			//font-size: 15px;
+		}
+		.count{
+			//top: 70px;
+			z-index: -33;
+			//text-align: center;
+			//display: none;
+		}
+	}
+}
+.post-and-comments{
+	//float: left;
+	overflow: scroll;
+	//background-image: url('swirl.png');
+}
+body{
+	//background-image: url('swirl.png');
+	//background-image: url('square_bg.png');
+	//background-image: url('light_wool.png');
+}
+#post-index-main-area{
+	position: relative;
+}
+.post-and-comments{
+	position: relative;
+	.count{
+		position: absolute;
+		font-size: 100px;
+		display: block;
+		top: 32px;
+		right: 0px;
+		color: #4E00EB; //purple
+		color: #F5E5FF;
+		font-style: italic;
+		z-index: -1;
+	}
 }

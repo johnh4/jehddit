@@ -22,6 +22,15 @@
 			</p>
 		</span>
 		<%= render 'comments/comment_voting', comment: comment %>
+		<div class="right">
+			<p>
+			<% if current_user?(comment.user) %>
+				<%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, 
+									  confirm: 'Are you sure?' %>
+			<% end %>
+			<span class="reply-link"><%= link_to 'Reply', reply_path(comment.post, comment) %></span>
+			</p>
+		</div>
 	</div>
 <% end %>
 <ul class="replies">

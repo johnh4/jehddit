@@ -1,5 +1,5 @@
 var replacement = "<%= escape_javascript(render partial: 'posts/post', 
 	                   collection: @posts) %>";
 $('#posts_index').html(replacement);
-$('#post_vote_count').html("<%= @post.vote_count %>");
+$('.post-and-comments .count').html("<%= @post.vote_count %>");
 //$('#pi_test').html('byebye');
